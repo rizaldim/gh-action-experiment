@@ -22,4 +22,4 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:linode
-      - run: ping -c 4 debian-12-1
+      - run: ping -c 4 ubuntu-4gb-fsn1-2.gentoo-snapper.ts.net
