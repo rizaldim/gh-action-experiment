@@ -6,7 +6,7 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request }}
+    # if: ${{ github.event.issue.pull_request }}
     steps:
       - name: Tailscale
         uses: tailscale/github-action@v3
