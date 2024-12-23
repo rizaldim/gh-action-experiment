@@ -32,7 +32,7 @@ jobs:
           SHA256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac '${{ secrets.ATLANTIS_SECRET }}' | sed 's/.*= //')
 
           curl --http1.1 --fail-with-body -v -sS -X POST \
-            -H "Content-Type: application/json" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
             -H "User-Agent: GitHub-Hookshot/$USER_AGENT" \
             -H "X-GitHub-Delivery: $REQUEST_ID" \
             -H "X-Hub-Signature: sha1=$SHA1" \
