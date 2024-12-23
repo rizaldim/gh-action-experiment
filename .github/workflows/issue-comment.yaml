@@ -1,0 +1,33 @@
+name: On issue comment
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }}
+    steps:
+      - name: Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:atlantis
+
+      - name: Create payload
+        run: |
+          echo '''
+          {
+            "action": "created",
+            "issue": {
+            },
+            "comment": {
+            },
+            "repository": {
+            },
+            "sender": {
+            }
+          }
+          ''' > payload.json
+
+      - run: which curl
