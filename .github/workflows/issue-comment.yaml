@@ -2,6 +2,7 @@ name: On issue comment
 on:
   issue_comment:
     types: [created]
+  push:
 jobs:
   main:
     runs-on: ubuntu-latest
