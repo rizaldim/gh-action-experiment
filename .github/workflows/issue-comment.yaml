@@ -47,6 +47,6 @@ jobs:
             -H 'User-Agent: GitHub-Hookshot/68d5600' \
             -H 'X-GitHub-Event: issue_comment' \
             -H 'X-Hub-Signature: sha1=${{ steps.signature.outputs.sha1 }}' \
-            -H 'X-Hub-Signature-256: sha256=${{ steps.signature.outputs.sha256 '}}
+            -H 'X-Hub-Signature-256: sha256=${{ steps.signature.outputs.sha256 }}' \
             -v \
             --location http://188.245.227.86:4141/events
