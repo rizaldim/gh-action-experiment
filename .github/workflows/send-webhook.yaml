@@ -28,10 +28,8 @@ jobs:
           USER_AGENT=$(openssl rand -hex 7)
           UUID=$(openssl rand -hex 16)
           REQUEST_ID=$(echo ${UUID:0:8}-${UUID:8:4}-${UUID:12:4}-${UUID:16:4}-${UUID:20:12})
-          SHA1=$(echo -n "$PAYLOAD" | openssl dgst -sha1 -hmac '${{secrets.WEBHOOK_SECRET}}' | sed 's/.*= //')
-          SHA256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac '${{secrets.WEBHOOK_SECRET}}' | sed 's/.*= //')
-
-          echo $SHA1
+          SHA1=$(echo -n "$PAYLOAD" | openssl dgst -sha1 -hmac '${{ secrets.ATLANTIS_SECRET}}' | sed 's/.*= //')
+          SHA256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac '${{ secrets.ATLANTIS_SECRET }}' | sed 's/.*= //')
 
           curl --http1.1 --fail-with-body -v -sS -X POST \
             -H "Content-Type: application/json" \
