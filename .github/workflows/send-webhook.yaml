@@ -39,5 +39,8 @@ jobs:
             -H "X-Hub-Signature: sha1=$SHA1" \
             -H "X-Hub-Signature-256: sha256=$SHA256" \
             -H "X-GitHub-Event: ${{ github.event_name }}" \
+            -H "X-GitHub-Hook-ID: 520185796" \
+            -H "X-GitHub-Hook-Installation-Target-ID: 906973594" \
+            -H "X-GitHub-Hook-Installation-Target-Type: repository" \
             --data "$PAYLOAD" \
             http://103.3.60.132:4141/events
