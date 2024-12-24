@@ -40,4 +40,4 @@ jobs:
             -H "X-Hub-Signature-256: sha256=$SHA256" \
             -H "X-GitHub-Event: ${{ github.event_name }}" \
             --data "$PAYLOAD" \
-            http://ubuntu-4gb-fsn1-2.gentoo-snapper.ts.net:4141/events
+            http://103.3.60.132:4141/events
